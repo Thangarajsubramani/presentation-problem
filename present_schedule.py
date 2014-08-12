@@ -37,7 +37,7 @@ def main(tschedule):
  
 def result_pattern(d):
     """ Result pattern"""
-    print "Minimum Cost Representer"
+    print "Maximum number of presenters with minimum Cost"
     print "Presenters\thours\tcost"
     mincost=d.get('mincost')
     if mincost:
