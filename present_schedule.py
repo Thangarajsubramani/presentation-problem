@@ -21,7 +21,7 @@ def combinations(iterable, r):
 
 def main(tschedule):
     
- with open('C:\Users\hpadmin\Desktop\input.csv', mode='r') as infile:
+ with open('input.csv', mode='r') as infile:
     reader = csv.reader(infile)
     row=next(reader)
     presenter,hours,cost=row[0],row[1],row[2]
