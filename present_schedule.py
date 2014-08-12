@@ -28,7 +28,7 @@ def main(tschedule):
     tup = namedtuple('tup', [presenter,hours,cost])
     mydict = dict([(rows[0],[rows[1],rows[2]]) for rows in reader])
     presenter=[]
-    for pres in combinations(mydict,tschedule):
+    for pres in combinations(mydict,3):
        thour=sum(int(mydict[i][0]) for i in pres)
        tcost =sum(int(mydict[i][1][1:]) for i in pres)
        presenter.append((pres,thour,tcost))
