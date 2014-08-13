@@ -136,7 +136,7 @@ def mincost_present(mydict,tup,tschedule):
 if __name__=="__main__":
 
     """Assumed time shcedule 3 and exactly 3 slots"""
-    tschedule=6
+    tschedule=3
     main_setup(tschedule,"C:\Users\hpadmin\Desktop\input.csv")
     
             
