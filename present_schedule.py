@@ -19,18 +19,19 @@ def combinations(iterable, r):
             indices[j] = indices[j-1] + 1
         yield tuple(pool[i] for i in indices)
 
-def main(tschedule):
-    
- with open('input.csv', mode='r') as infile:
+def main_setup(tschedule,f):
+  
+  with open(f, mode='r') as infile:
     reader = csv.reader(infile)
     row=next(reader)
     presenter,hours,cost=row[0],row[1],row[2]
     tup = namedtuple('tup', [presenter,hours,cost])
     mydict = dict([(rows[0],[rows[1],rows[2]]) for rows in reader])
     presenter=[]
- maxpresent_mincost(mydict,tup)
- mincost_present(mydict,tup)
- 
+  maxpresent_mincost(mydict,tup,tschedule)
+  mincost_present(mydict,tup,tschedule)
+  return mydict
+   
 def result_pattern(d):
     """ Result pattern"""
     print "1)Maximum number of presenter with min cost"
@@ -44,6 +45,7 @@ def result_pattern(d):
     else:
         print "Not enough presenters"
         
+        
 def result_pattern1(d):
     """ Result pattern"""
     print "2)Minimum cost presenter"
@@ -52,10 +54,11 @@ def result_pattern1(d):
     if mincost:     
        for d in  mincost:
         print str(d[0])+"\t"+str(d[1])+"\t$"+str(d[2])
+       
     else:
         print "Not enough presenters"
- 
-def maxpresent_mincost(mydict,tup):
+        
+def maxpresent_mincost(mydict,tup,tschedule):
      presenter=[]
      for pres in combinations(mydict,3):
        thour=sum(int(mydict[i][0]) for i in pres)
@@ -82,10 +85,11 @@ def maxpresent_mincost(mydict,tup):
                    minlist.append(tup(pres,thour,tcost))
                    output['mincost']=minlist
                
-          
-     result_pattern(output)
      
-def mincost_present(mydict,tup):
+     result_pattern(output)
+     return output
+     
+def mincost_present(mydict,tup,tschedule):
      keys=mydict.keys()
      keys.pop()
      r=len(keys)
@@ -125,14 +129,15 @@ def mincost_present(mydict,tup):
      
      output['mincost']=[minpres for minpres in minlist if len(minpres.Name)==3]
      result_pattern1(output)
+     return output
          
             
 
 if __name__=="__main__":
 
     """Assumed time shcedule 3 and exactly 3 slots"""
-    tschedule=3
-    main(tschedule)
+    tschedule=6
+    main_setup(tschedule,"C:\Users\hpadmin\Desktop\input.csv")
     
             
         
