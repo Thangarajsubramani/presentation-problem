@@ -4,8 +4,8 @@ from collections import OrderedDict, namedtuple
 class TestPresentation(unittest.TestCase):
     
     def setUp(self):
-        self.file = "C:\Users\hpadmin\Desktop\input.csv"
-        self.tschedule=6
+        self.file = "input.csv"
+        self.tschedule=3
     def test_main(self):      
         self.assertTrue(present_schedule.main_setup(self.tschedule,self.file))
         self.mydict=present_schedule.main_setup(self.tschedule,self.file)       
