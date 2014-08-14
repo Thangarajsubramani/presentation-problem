@@ -60,7 +60,7 @@ def result_pattern1(d):
         print "Not enough presenters"
         
 def maxpresent_mincost(mydict,tup,tschedule):
-    """get max number presenter with min cost"""
+     """get max number presenter with min cost"""
      presenter=[]
      for pres in combinations(mydict,3):
        thour=sum(int(mydict[i][0]) for i in pres)
@@ -91,8 +91,8 @@ def maxpresent_mincost(mydict,tup,tschedule):
      result_pattern(output)
      return output
      
-def mincost_present(mydict,tup,tschedule
-    """ get min cost prsenter"""
+def mincost_present(mydict,tup,tschedule):
+     """ get min cost prsenter"""
      keys=mydict.keys()
      keys.pop()
      r=len(keys)
@@ -140,7 +140,7 @@ if __name__=="__main__":
     """get the time schedule from user and Assume exactly 3 slots"""
     while True:
        tschedule=input("Enter the time shcedule duration:")
-       main_setup(tschedule,"input.csv")
+       main_setup(tschedule,'input.csv')
     
     
             
