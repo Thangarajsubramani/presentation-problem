@@ -1,6 +1,7 @@
 import csv
 from collections import OrderedDict, namedtuple
 def combinations(iterable, r):
+    """get the All combinations"""
     pool = tuple(iterable)
     n = len(pool)
     if r > n:
@@ -20,7 +21,7 @@ def combinations(iterable, r):
         yield tuple(pool[i] for i in indices)
 
 def main_setup(tschedule,f):
-  
+  """ make dict from read the csv file and start the process"""
   with open(f, mode='r') as infile:
     reader = csv.reader(infile)
     row=next(reader)
@@ -59,6 +60,7 @@ def result_pattern1(d):
         print "Not enough presenters"
         
 def maxpresent_mincost(mydict,tup,tschedule):
+    """get max number presenter with min cost"""
      presenter=[]
      for pres in combinations(mydict,3):
        thour=sum(int(mydict[i][0]) for i in pres)
@@ -89,7 +91,8 @@ def maxpresent_mincost(mydict,tup,tschedule):
      result_pattern(output)
      return output
      
-def mincost_present(mydict,tup,tschedule):
+def mincost_present(mydict,tup,tschedule
+    """ get min cost prsenter"""
      keys=mydict.keys()
      keys.pop()
      r=len(keys)
@@ -134,10 +137,11 @@ def mincost_present(mydict,tup,tschedule):
             
 
 if __name__=="__main__":
-
-    """Assumed time shcedule 3 and exactly 3 slots"""
-    tschedule=3
-    main_setup(tschedule,"C:\Users\hpadmin\Desktop\input.csv")
+    """get the time schedule from user and Assume exactly 3 slots"""
+    while True:
+       tschedule=input("Enter the time shcedule duration:")
+       main_setup(tschedule,"input.csv")
+    
     
             
         
